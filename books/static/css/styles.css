@@ -1,0 +1,13 @@
+.chapter-content {
+    line-height: 1.5;  /* Adjust this value to change the line height */
+}
+
+.card-img-top {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+}
+
+/* .dropdown-menu-long {
+    width: 600px; 
+} */

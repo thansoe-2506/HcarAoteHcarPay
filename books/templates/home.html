@@ -1,0 +1,21 @@
+{% extends 'base.html' %} {% block title %} Home Page {% endblock %}
+
+ {% load static %} <!-- Load static files -->
+
+{% block content %}
+<div class="row">
+    {% for book in books %}
+    <div class="col-lg-2 col-md-6 col-sm-12 mx-0"> <!-- Responsive grid column -->
+        <div class="card mb-2 mt-2 mx-0"> <!-- Card with margin-bottom -->
+            <img src="{{ book.image.url }}" class="card-img-top img-fluid" alt="Book Image"> <!-- Replace with your image path -->
+            <div class="card-body">
+                <h5 class="card-title">{{ book.title }}</h5>
+                <p class="card-text"><strong>စာရေးသူ - </strong> {{ book.author }}</p>
+                <a href="{% url 'read' book.id %}" class="btn btn-primary">ဖတ်ရန်</a> 
+                <!-- <button class="btn btn-link heart-button"><i class="far fa-heart"></i></button> -->
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

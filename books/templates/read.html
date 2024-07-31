@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="mx-4">
+    <div class="my-4">
+        <h3>{{ book.title }}</h3>
+        <p><strong>စာရေးသူ - </strong> {{ book.author }}</p>
+    </div>
+    
+    <h4>အခန်းများ</h4>
+    {% for chapter in chapters %}
+        <h6>{{ chapter.title }}</h6>
+        <p class="chapter-content">{{ chapter.content|linebreaks }}</p>
+        <hr class="my-4 border-dark">
+    {% endfor %}
+</div>
+{% endblock %}

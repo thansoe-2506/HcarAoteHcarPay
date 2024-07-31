@@ -1,0 +1,27 @@
+{% extends 'base.html' %} {% block title %} Books Page {% endblock %}
+{% block content %}
+<div class="mb-2 mt-2 mx-4">
+    <form method="get" action="{% url 'search' %}">
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="authorDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Select Author
+            </button>
+            <div class="dropdown-menu" aria-labelledby="authorDropdown">
+                {% for author in authors %}
+                    <button class="dropdown-item" type="submit" name="author" value="{{ author }}">{{ author }}</button>
+                {% endfor %}
+            </div>
+        </div>
+    </form>
+</div>
+<div class="row mx-4">
+    {% for book in books %}
+        <!-- display book details -->
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-2">
+            <!-- <h5 class="card-title">{{ book.title }}</h5> -->
+            <a href="{% url 'read' book.id %}" class="btn btn-primary">{{ book.title }}</a> 
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
+

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      {% block title %}
+        Hcaraote Hcarpay
+      {% endblock %}
+      {% load static %}
+    </title>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"  rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  </head>
+  <body class="d-flex flex-column min-vh-100">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" style="font-size: 20px;" href="{% url 'home' %}"><strong>စာအုပ်စာပေ</strong></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'home' %}">စာအုပ်များ</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'search' %}">ရှာဖွေရန်</a>
+            </li>
+            <li class="nav-item">
+                <!-- <a class="nav-link" href="{% url 'favorites' %}">ကြိုက်နှစ်သက်သော</a> -->
+            </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main role="main" class="flex-shrink-0">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer class="footer mt-auto py-3 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Contact Information</h5>
+                    <p>123 Main St, Anytown, USA</p>
+                    <p>Email: info@example.com</p>
+                    <p>Phone: (123) 456-7890</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Social Links</h5>
+                    <p><a href="#">Facebook</a></p>
+                    <p><a href="#">Twitter</a></p>
+                    <p><a href="#">Instagram</a></p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Other Information</h5>
+                    <p>Any other information you want to include in your footer.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- <script>
+      var heartButtons = document.querySelectorAll('.heart-button');
+      heartButtons.forEach(function(button) {
+          button.addEventListener('click', function(event) {
+              var heartIcon = event.target;
+              heartIcon.classList.toggle('far');  // gray heart
+              heartIcon.classList.toggle('fas');  // solid heart
+              heartIcon.classList.toggle('text-danger');  // red color
+          });
+      });
+    </script> -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" ></script>
+  </body>
+</html>
