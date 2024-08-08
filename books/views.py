@@ -41,9 +41,12 @@ def search(request):
     categories = Book.objects.values_list('category', flat=True).distinct()
     selected_author = request.GET.get('author')
     selected_category = request.GET.get('category')
-    books = Book.objects.filter(author=selected_author) if selected_author else Book.objects.none()
-    books = books.filter(category=selected_category) if selected_category else books
-    return render(request, 'search.html', {'authors': authors, 'books': books, 'categories': categories})
+    books = Book.objects.all()
+    if selected_author:
+        books = books.filter(author=selected_author)
+    if selected_category:
+        books = books.filter(category=selected_category)
+    return render(request, 'search.html', {'authors': authors, 'books': books, 'categories': categories, 'selected_author': selected_author, 'selected_category': selected_category})
 
 def favorites(request):
     return render(request, 'favorites.html')
