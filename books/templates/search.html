@@ -5,27 +5,30 @@
         <div class="row">
             <div class="col-lg-2 col-md-6 col-sm-12">
                 <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="authorDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        စားရေးသူ ရွေးချယ်ရန်
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="authorDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        စားရေးသူဖြင့် ရှာရန်
                     </button>
                     <div class="dropdown-menu" aria-labelledby="authorDropdown">
                         {% for author in authors %}
-                            <button class="dropdown-item" type="submit" name="author" value="{{ author }}">{{ author }}</button>
+                            <button class="dropdown-item" name="author" value="{{ author }}">{{ author }}</button>
                         {% endfor %}
                     </div>
                 </div>
             </div>
             <div class="col-lg-2 col-md-6 col-sm-12">
                 <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="categoryDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        အမျိုးအစား ရွေးချယ်ရန်
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="categoryDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        အမျိုးအစားဖြင့် ရှာရန်
                     </button>
                     <div class="dropdown-menu" aria-labelledby="categoryDropdown">
                         {% for category in categories %}
-                            <button class="dropdown-item" type="submit" name="category" value="{{ category }}">{{ category }}</button>
+                            <button class="dropdown-item" name="category" value="{{ category }}">{{ category }}</button>
                         {% endfor %}
                     </div>
                 </div>
+            </div>
+            <div class="col-lg-2 col-md-6 col-sm-12">
+                <button class="btn btn-primary" type="submit">စာအုပ်အားလုံး ရှာရန်</button>
             </div>
             </div>
         </div>

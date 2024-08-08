@@ -42,9 +42,11 @@ def search(request):
     selected_author = request.GET.get('author')
     selected_category = request.GET.get('category')
     books = Book.objects.all()
-    if selected_author:
+    if selected_author and selected_category:
+        books = books.filter(author=selected_author, category=selected_category)
+    elif selected_author:
         books = books.filter(author=selected_author)
-    if selected_category:
+    elif selected_category:
         books = books.filter(category=selected_category)
     return render(request, 'search.html', {'authors': authors, 'books': books, 'categories': categories, 'selected_author': selected_author, 'selected_category': selected_category})
 
