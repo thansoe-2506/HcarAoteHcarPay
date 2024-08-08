@@ -16,11 +16,11 @@
   </head>
   <body class="d-flex flex-column min-vh-100">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" style="font-size: 20px;" href="{% url 'home' %}"><strong>စာအုပ်စာပေ</strong></a>
+      <a class="navbar-brand pl-3" style="font-size: 30px;" href="{% url 'home' %}"><strong>စာအုပ်စာပေ</strong></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="{% url 'home' %}">စာအုပ်များ</a>
             </li>
             <li class="nav-item">
@@ -38,22 +38,30 @@
         {% endblock %}
     </main>
 
-    <footer class="footer mt-auto py-3 bg-light">
+    <footer class="footer mt-auto py-3 bg-secondary">
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-4 text-light">
                     <h5>Contact Information</h5>
                     <p>123 Main St, Anytown, USA</p>
                     <p>Email: info@example.com</p>
                     <p>Phone: (123) 456-7890</p>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 text-light">
                     <h5>Social Links</h5>
-                    <p><a href="#">Facebook</a></p>
-                    <p><a href="#">Twitter</a></p>
-                    <p><a href="#">Instagram</a></p>
+                    <div class="mt-4">
+                      <a href="#">
+                        <img src="{% static 'img/facebook.png' %}" style="width: 50px; height: 50px;"></img>
+                      </a>
+                      <a href="#" class="mx-3">
+                        <img src="{% static 'img/twitter.png' %}" style="width: 50px; height: 50px;"></img>
+                      </a>
+                      <a href="#">
+                        <img src="{% static 'img/instagram.png' %}" style="width: 50px; height: 50px;"></img>
+                      </a>
+                  </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 text-light">
                     <h5>Other Information</h5>
                     <p>Any other information you want to include in your footer.</p>
                 </div>

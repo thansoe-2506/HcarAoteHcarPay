@@ -1,25 +1,42 @@
 {% extends 'base.html' %} {% block title %} Books Page {% endblock %}
 {% block content %}
-<div class="mb-2 mt-2 mx-4">
+<div class="mb-2 mt-3 mx-4">
     <form method="get" action="{% url 'search' %}">
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="authorDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Select Author
-            </button>
-            <div class="dropdown-menu" aria-labelledby="authorDropdown">
-                {% for author in authors %}
-                    <button class="dropdown-item" type="submit" name="author" value="{{ author }}">{{ author }}</button>
-                {% endfor %}
+        <div class="row">
+            <div class="col-lg-2 col-md-6 col-sm-12">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="authorDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        စားရေးသူ ရွေးချယ်ရန်
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="authorDropdown">
+                        {% for author in authors %}
+                            <button class="dropdown-item" type="submit" name="author" value="{{ author }}">{{ author }}</button>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-6 col-sm-12">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="categoryDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        အမျိုးအစား ရွေးချယ်ရန်
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="categoryDropdown">
+                        {% for category in categories %}
+                            <button class="dropdown-item" type="submit" name="category" value="{{ category }}">{{ category }}</button>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
             </div>
         </div>
     </form>
 </div>
-<div class="row mx-4">
+<div class="row mx-4 my-3">
     {% for book in books %}
         <!-- display book details -->
-        <div class="col-lg-2 col-md-4 col-sm-6 mb-2">
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-3">
             <!-- <h5 class="card-title">{{ book.title }}</h5> -->
-            <a href="{% url 'read' book.id %}" class="btn btn-primary">{{ book.title }}</a> 
+            <a href="{% url 'read' book.id %}" class="btn btn-outline-dark">{{ book.title }}</a> 
         </div>
     {% endfor %}
 </div>

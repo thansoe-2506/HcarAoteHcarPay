@@ -23,8 +23,14 @@ def read(request, book_id):
     chapters = Chapter.objects.filter(book=book)
     return render(request, 'read.html', {'book': book, 'chapters': chapters})
 
+# retrieve 30 books from the database
+# def home(request):
+#     books = Book.objects.all()[:30] 
+#     return render(request, 'home.html', {'books': books})
+
+# retrieve random 30 books from the database
 def home(request):
-    books = Book.objects.all()[:30] 
+    books = Book.objects.order_by('?')[:30]
     return render(request, 'home.html', {'books': books})
 
 # def search(request):
@@ -32,9 +38,12 @@ def home(request):
 
 def search(request):
     authors = Book.objects.values_list('author', flat=True).distinct()
+    categories = Book.objects.values_list('category', flat=True).distinct()
     selected_author = request.GET.get('author')
+    selected_category = request.GET.get('category')
     books = Book.objects.filter(author=selected_author) if selected_author else Book.objects.none()
-    return render(request, 'search.html', {'authors': authors, 'books': books})
+    books = books.filter(category=selected_category) if selected_category else books
+    return render(request, 'search.html', {'authors': authors, 'books': books, 'categories': categories})
 
 def favorites(request):
     return render(request, 'favorites.html')
